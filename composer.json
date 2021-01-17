@@ -9,7 +9,9 @@
     "authors": [
         {
             "name": "Alvin Chiu",
-            "email": "cch20094@gmail.com"
+            "email": "cch20094@gmail.com",
+            "homepage": "https://github.com/cch12313",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",
@@ -18,5 +20,6 @@
     },
     "require-dev": {
         "phpunit/phpunit": "9.5.x-dev"
-    }
+    },
+    "license": "Apache-2.0"
 }
