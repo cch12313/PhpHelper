@@ -1,6 +1,6 @@
 <?php
 require "src/Helper/Types/type.php";
-use Helper\Types\TypeUtils;
+use Helper\TypeUtils;
 use PHPUnit\Framework\TestCase;
 
 final class typeTest extends TestCase

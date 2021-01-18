@@ -1,6 +1,6 @@
 <?php
 
-namespace Helper\Types;
+namespace Helper;
 
 class TypeUtils {
   public static function getBoolean($data){

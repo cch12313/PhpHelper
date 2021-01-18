@@ -1,8 +1,8 @@
 <?php
 
-namespace Helper\Page;
+namespace Helper;
 
-class PageUtils
+class DataUtils
 {
   /**
    * paginate data by offset and length
@@ -14,12 +14,12 @@ class PageUtils
   public static function paginateData($dataList, $length = 10, $page = 1)
   {
     $result = [];
-    if(!is_numeric($length)){
+    if (!is_numeric($length)) {
       return $result;
     }
     $length = (int)$length;
 
-    if(!is_numeric($page)){
+    if (!is_numeric($page)) {
       return $result;
     }
     $page = (int)$page;
@@ -27,7 +27,7 @@ class PageUtils
     $offset = ($page - 1) * $length;
 
 
-    if($length < 1 || $page < 1 || !is_array($dataList)){
+    if ($length < 1 || $page < 1 || !is_array($dataList)) {
       return $result;
     }
 
@@ -42,5 +42,22 @@ class PageUtils
       $len++;
     }
     return $result;
+  }
+
+  /**
+   * get client user's ip
+   * @return String user's ip
+   */
+  public static function getClientIP()
+  {
+    $ip = '';
+    if (getenv("HTTP_CLIENT_IP")) {
+      $ip = getenv("HTTP_CLIENT_IP");
+    } elseif (getenv("HTTP_X_FORWARDED_FOR")) {
+      $ip = getenv("HTTP_X_FORWARDED_FOR");
+    } elseif (getenv("REMOTE_ADDR")) {
+      $ip = getenv("REMOTE_ADDR");
+    }
+    return $ip;
   }
 }

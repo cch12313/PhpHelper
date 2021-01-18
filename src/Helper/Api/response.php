@@ -1,6 +1,6 @@
 <?php
 
-namespace Helper\Api;
+namespace Helper;
 
 interface ResponseInterface {
   
