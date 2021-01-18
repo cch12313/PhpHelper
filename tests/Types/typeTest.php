@@ -1,28 +1,27 @@
 <?php
-
+require "src/Helper/Types/type.php";
 use Helper\Types\TypeUtils;
 use PHPUnit\Framework\TestCase;
-require "src/Helper/Types/type.php";
 
 final class typeTest extends TestCase
 {
-    /**
-     * @dataProvider booleanProvider
-     */
-    public function testAdd($data, bool $expected)
+    public function testGetBool()
     {
-        $this->assertSame($expected, TypeUtils::getBool($data));
+        $elements = [
+            'true(boolean)' => [true, true],
+            'false(boolean)' => [false, false],
+            '1' => [1, true],
+            '0' => [0, false],
+            'true(string)' => ['true', true],
+            'false(string)' => ['false', false],
+        ];
+
+        foreach($elements as $type => $row){
+            $data = $row[0];
+            $expect = $row[1];
+            $this->assertSame($expect, TypeUtils::getBool($data), $type . ' failed');
+        }
+        
     }
 
-    public function booleanProvider()
-    {
-        return [
-          'true(boolean)' => [true, true],
-          'false(boolean)' => [false, false],
-          '1' => [1, true],
-          '0' => [0, false],
-          '\'true\'' => ['true', true],
-          '\'false\'' => ['false', false],
-        ];
-    }
 }
