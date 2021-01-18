@@ -1,7 +1,7 @@
 <?php
-require "src/Helper/Data/data.php";
+require "src/Helper/data.php";
 
-use Helper\DataUtils;
+use Helper\Data;
 use PHPUnit\Framework\TestCase;
 
 final class dataTest extends TestCase
@@ -29,7 +29,7 @@ final class dataTest extends TestCase
     ];
 
     foreach ($elements as $type => $row) {
-      $this->assertEquals($row['expect'], DataUtils::paginateData($row['data'][0], $row['data'][1], $row['data'][2]), $type . 'failed' . PHP_EOL);
+      $this->assertEquals($row['expect'], Data::paginateData($row['data'][0], $row['data'][1], $row['data'][2]), $type . 'failed' . PHP_EOL);
     }
   }
 
@@ -56,7 +56,7 @@ final class dataTest extends TestCase
 
 
     foreach ($elements as $type => $row) {
-      $this->assertEquals($row['expect'], DataUtils::paginateData($row['data'][0], $row['data'][1], $row['data'][2]), $type . ' failed' . PHP_EOL);
+      $this->assertEquals($row['expect'], Data::paginateData($row['data'][0], $row['data'][1], $row['data'][2]), $type . ' failed' . PHP_EOL);
     }
   }
 
@@ -82,7 +82,7 @@ final class dataTest extends TestCase
 
 
     foreach ($elements as $type => $row) {
-      $this->assertEquals($row['expect'], DataUtils::paginateData($row['data'][0], $row['data'][1], $row['data'][2]), $type . ' failed' . PHP_EOL);
+      $this->assertEquals($row['expect'], Data::paginateData($row['data'][0], $row['data'][1], $row['data'][2]), $type . ' failed' . PHP_EOL);
     }
   }
 }

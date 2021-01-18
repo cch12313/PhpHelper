@@ -1,6 +1,7 @@
 <?php
-require "src/Helper/Types/type.php";
-use Helper\TypeUtils;
+require "src/Helper/type.php";
+
+use Helper\Type;
 use PHPUnit\Framework\TestCase;
 
 final class typeTest extends TestCase
@@ -19,7 +20,7 @@ final class typeTest extends TestCase
         foreach($elements as $type => $row){
             $data = $row[0];
             $expect = $row[1];
-            $this->assertSame($expect, TypeUtils::getBool($data), $type . ' failed');
+            $this->assertSame($expect, Type::getBool($data), $type . ' failed');
         }
         
     }

@@ -2,7 +2,7 @@
 
 namespace Helper;
 
-class DataUtils
+class Data
 {
   /**
    * paginate data by offset and length
